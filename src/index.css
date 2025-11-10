@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web";
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+body {
+  background-color: #313647;
+}
+
+h1 {
+  font-size: 90px;
+  color: #FFF8D4;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+main {
+  width: 972px;
+  height: 636px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: white;
+  border-radius: 8px;
+  background-color: aliceblue;
+}
+
+header {
+  background-color: #A3B087;
+  color: #313647;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+header b {
+  font-weight: 700;
+}
+
+.item-list {
+  display: flex;
+  margin-top: 30px;
+  padding: 0 10px 0 10px;
+  flex-direction: column;
+  color: black;
+  flex: 2;
+  border-right: 1px solid lightgray;
+  background-color: aliceblue;
+}
+
+.item-list-empty {
+  display: flex;
+  color: lightgray;
+  flex: 2;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  border-right: 1px solid lightgray;
+  background-color: aliceblue;
+}
+
+.item-list-empty span {
+  cursor: pointer;
+}
+
+.bookmark-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  color: #435663;
+  padding: 0 20px 10px 20px;
+  margin-top: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.item-button {
+  all: unset;
+}
+
+.item-input {
+  margin-right: 10px;
+}
+
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.sidebar-input {
+  all: unset;
+  color: black;
+  border: 1px solid lightgray;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.add-item-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  height: 40px;
+  border-radius: 3px;
+  color: white;
+  background-color: #A3B087;
+  border: 2px solid #435663;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+.btn:active {
+  color: #313647;
+}
+
+.btn:hover {
+  background-color: #435663;
+}
+
+.all-items-packed {
+  font-weight: 700;
+}
