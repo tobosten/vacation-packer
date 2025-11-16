@@ -9,7 +9,6 @@ const ListContent = ({ listItems, setListItems }) => {
       }
     });
     setListItems(newItems);
-    console.log(listItems);
   };
 
   return (

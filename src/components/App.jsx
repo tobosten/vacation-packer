@@ -8,9 +8,15 @@ import { initialListItems } from "../constants.js";
 import { BookmarkIcon } from "@radix-ui/react-icons";
 
 function App() {
-  const [listItems, setListItems] = useState(
-    () => JSON.parse(localStorage.getItem("items")) || initialListItems
-  );
+  const [listItems, setListItems] = useState(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem("items"));
+      return Array.isArray(stored) ? stored : initialListItems;
+    } catch {
+      return initialListItems;
+    }
+    /* return JSON.parse(localStorage.getItem("items")) || initialListItems; */
+  });
 
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(listItems));

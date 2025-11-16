@@ -1,7 +1,7 @@
 export default function Header({ listItems }) {
   let packedItems = 0;
-  listItems.map((item) => {
-    if (item.packed) {
+  listItems.filter((item) => {
+    if (item.packed === true) {
       packedItems++;
     }
   });
