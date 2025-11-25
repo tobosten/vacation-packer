@@ -61,6 +61,8 @@ header b {
 
 .item-list {
   display: flex;
+  overflow: auto;
+  margin-bottom: 30px;
   margin-top: 30px;
   padding: 0 10px 0 10px;
   flex-direction: column;

@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
 import Button from "./Button";
+import { itemsStore } from "../store/itemsStore";
 
-export default function AddItemInput({ onAddItem }) {
+export default function AddItemInput() {
+  const addItem = itemsStore((state) => state.addItem);
   const [itemInput, setItemInput] = useState("");
   const inputRef = useRef();
 
   const handleInputChange = (event) => {
     event.preventDefault();
-    onAddItem({itemInput, setItemInput});
+    addItem({ itemInput, setItemInput });
     inputRef.current.focus();
   };
 

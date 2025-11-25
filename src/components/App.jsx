@@ -1,40 +1,28 @@
-import { useEffect, useState } from "react";
 import "../index.css";
 import BackgroundHeader from "./BackgroundHeader.jsx";
 import Header from "./Header.jsx";
 import ListContent from "./ListContent.jsx";
 import Sidebar from "./Sidebar.jsx";
-import { initialListItems } from "../constants.js";
 import { BookmarkIcon } from "@radix-ui/react-icons";
+import { itemsStore } from "../store/itemsStore.js";
 
 function App() {
-  const [listItems, setListItems] = useState(() => {
-    try {
-      const stored = JSON.parse(localStorage.getItem("items"));
-      return Array.isArray(stored) ? stored : initialListItems;
-    } catch {
-      return initialListItems;
-    }
-    /* return JSON.parse(localStorage.getItem("items")) || initialListItems; */
-  });
-
-  useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(listItems));
-  }, [listItems]);
+  const items = itemsStore((state) => state.items);
+  const restoreInitialList = itemsStore((state) => state.restoreInitialList);
 
   return (
     <>
       <BackgroundHeader />
       <main>
-        <Header listItems={listItems} />
+        <Header listItems={items} />
         <div className="content">
-          {listItems.length ? (
-            <ListContent listItems={listItems} setListItems={setListItems} />
+          {items.length ? (
+            <ListContent />
           ) : (
             <div className="item-list-empty">
               <span
                 onClick={() => {
-                  setListItems(initialListItems);
+                  restoreInitialList();
                 }}
               >
                 No items in list... <BookmarkIcon className="bookmark-icon" />
@@ -42,7 +30,7 @@ function App() {
             </div>
           )}
 
-          <Sidebar listItems={listItems} setListItems={setListItems} />
+          <Sidebar />
         </div>
       </main>
     </>
